@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LifeCare Clinic – Karachi</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a1628;
+  --bg2:#0f1e35;
+  --bg3:#162440;
+  --blue:#2563eb;
+  --blue2:#3b82f6;
+  --cyan:#06b6d4;
+  --cyan2:#22d3ee;
+  --white:#ffffff;
+  --card:#ffffff;
+  --muted:#94a3b8;
+  --text:#1e293b;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--bg);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;}
+.logo-box{width:38px;height:38px;background:linear-gradient(135deg,var(--blue),var(--cyan));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.logo-text{display:flex;flex-direction:column;}
+.logo-name{font-size:1rem;font-weight:700;color:var(--white);line-height:1;}
+.logo-name span{color:var(--cyan);}
+.logo-sub{font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-btn{background:linear-gradient(135deg,var(--blue),var(--cyan));color:var(--white)!important;padding:0.65rem 1.5rem;border-radius:50px;font-weight:600!important;transition:opacity 0.2s!important;box-shadow:0 4px 15px rgba(37,99,235,0.3);}
+.nav-btn:hover{opacity:0.85!important;}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--bg);display:flex;align-items:center;padding:7rem 3rem 4rem;}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.25);color:var(--cyan2);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.45rem 1rem;border-radius:50px;margin-bottom:1.8rem;}
+.badge-dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero h1{font-size:clamp(2.8rem,5vw,4.5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.3rem;}
+.hero h1 span{background:linear-gradient(135deg,var(--blue2),var(--cyan2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-desc{font-size:1rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:2.2rem;max-width:480px;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-pri{background:linear-gradient(135deg,var(--blue),var(--cyan));color:var(--white);padding:0.85rem 1.8rem;border-radius:50px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:all 0.2s;box-shadow:0 4px 20px rgba(37,99,235,0.4);}
+.btn-pri:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,99,235,0.5);}
+.btn-sec{border:1px solid rgba(255,255,255,0.2);color:var(--white);padding:0.85rem 1.8rem;border-radius:50px;text-decoration:none;font-weight:500;font-size:0.9rem;transition:all 0.2s;}
+.btn-sec:hover{border-color:var(--cyan);color:var(--cyan);}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.stat-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:all 0.2s;}
+.stat-card:hover{border-color:rgba(37,99,235,0.3);transform:translateY(-2px);}
+.stat-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.si-blue{background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(37,99,235,0.1));}
+.si-cyan{background:linear-gradient(135deg,rgba(6,182,212,0.2),rgba(6,182,212,0.1));}
+.si-yellow{background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(245,158,11,0.1));}
+.si-purple{background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(139,92,246,0.1));}
+.stat-num{font-size:1.8rem;font-weight:800;color:var(--white);line-height:1;}
+.stat-lbl{font-size:0.78rem;color:var(--muted);margin-top:0.2rem;}
+
+/* SECTIONS COMMON */
+section{padding:6rem 3rem;}
+.sec-inner{max-width:1100px;margin:0 auto;}
+.sec-hdr{text-align:center;margin-bottom:4rem;}
+.sec-lbl{font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.7rem;display:block;}
+.sec-ttl{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--white);line-height:1.15;margin-bottom:0.8rem;letter-spacing:-0.02em;}
+.sec-sub{font-size:0.95rem;color:var(--muted);line-height:1.7;max-width:540px;margin:0 auto;}
+
+/* SERVICES */
+#services{background:var(--bg);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.svc-card{background:var(--white);border-radius:16px;padding:1.8rem;position:relative;transition:all 0.25s;cursor:pointer;}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.3);}
+.svc-badge{position:absolute;top:1.2rem;right:1.2rem;font-size:0.65rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:50px;}
+.badge-green{background:#dcfce7;color:#16a34a;}
+.badge-blue{background:#dbeafe;color:#1d4ed8;}
+.svc-icon{width:52px;height:52px;background:#f1f5f9;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.2rem;}
+.svc-card h3{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;}
+.svc-card p{font-size:0.83rem;color:#64748b;line-height:1.6;margin-bottom:1rem;}
+.svc-link{font-size:0.83rem;color:var(--blue);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;transition:gap 0.2s;}
+.svc-link:hover{gap:0.6rem;}
+
+/* DOCTORS */
+#doctors{background:var(--bg2);}
+.doctors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.doc-card{background:var(--white);border-radius:16px;overflow:hidden;transition:all 0.25s;}
+.doc-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.3);}
+.doc-img-wrap{position:relative;height:240px;overflow:hidden;background:#e2e8f0;}
+.doc-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.doc-rating{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:8px;padding:0.3rem 0.6rem;font-size:0.78rem;font-weight:700;color:#f59e0b;display:flex;align-items:center;gap:0.2rem;}
+.doc-body{padding:1.4rem;}
+.doc-body h3{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.2rem;}
+.doc-spec{font-size:0.78rem;color:var(--blue);font-weight:600;letter-spacing:0.05em;margin-bottom:0.5rem;}
+.doc-exp{font-size:0.78rem;color:#94a3b8;display:flex;align-items:center;justify-content:space-between;}
+.doc-book{font-size:0.82rem;color:var(--blue);font-weight:600;text-decoration:none;}
+
+/* WHY US */
+#why{background:var(--bg3);}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.why-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:1.8rem;transition:all 0.25s;}
+.why-card:hover{border-color:rgba(37,99,235,0.3);transform:translateY(-3px);}
+.why-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--blue),var(--cyan));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.2rem;}
+.why-card h3{font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
+.why-card p{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+
+/* APPOINTMENT */
+#appointment{background:var(--bg);}
+.appt-wrap{max-width:1100px;margin:0 auto;}
+.appt-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;margin-top:3rem;align-items:start;}
+.appt-info-box{background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:2rem;margin-bottom:1rem;}
+.appt-info-box h3{font-size:1rem;font-weight:700;margin-bottom:1.5rem;}
+.info-row{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.3rem;}
+.info-icon{width:36px;height:36px;background:rgba(37,99,235,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+.info-row strong{display:block;font-size:0.8rem;color:rgba(255,255,255,0.5);font-weight:500;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.1rem;}
+.info-row span{font-size:0.88rem;color:var(--white);}
+.emergency-box{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:1rem 1.2rem;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.6;}
+.emergency-box strong{color:#f87171;}
+.appt-form{background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:2rem;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.field{display:flex;flex-direction:column;gap:0.4rem;}
+.field label{font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;}
+.finput{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:0.85rem 1rem;color:var(--white);font-family:'Inter',sans-serif;font-size:0.88rem;width:100%;transition:border-color 0.2s;outline:none;}
+.finput::placeholder{color:rgba(255,255,255,0.2);}
+.finput:focus{border-color:var(--blue);}
+select.finput option{background:var(--bg2);}
+.field-full{grid-column:1/-1;}
+textarea.finput{min-height:100px;resize:vertical;}
+.fsub{background:linear-gradient(135deg,var(--blue),var(--cyan));color:var(--white);border:none;padding:1rem;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;width:100%;margin-top:0.5rem;transition:all 0.2s;letter-spacing:0.02em;}
+.fsub:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,99,235,0.4);}
+.success{display:none;color:var(--cyan);text-align:center;font-size:0.88rem;margin-top:0.8rem;padding:0.8rem;background:rgba(6,182,212,0.08);border-radius:8px;border:1px solid rgba(6,182,212,0.2);}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,0.05);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.flinks{display:flex;gap:2rem;}
+.flinks a{color:var(--muted);text-decoration:none;font-size:0.82rem;transition:color 0.2s;}
+.flinks a:hover{color:var(--cyan);}
+footer p{color:var(--muted);font-size:0.82rem;}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{padding:6rem 1.5rem 3rem;}
+  .hero-inner{grid-template-columns:1fr;}
+  section{padding:4rem 1.5rem;}
+  .services-grid,.doctors-grid,.why-grid{grid-template-columns:1fr;}
+  .appt-grid{grid-template-columns:1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  footer{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-box">❤️</div>
+    <div class="logo-text">
+      <div class="logo-name">Life<span>Care</span></div>
+      <div class="logo-sub">Clinic Karachi</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#doctors">Doctors</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#appointment">Contact</a></li>
+    <li><a href="#appointment" class="nav-btn">Book Appointment</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span>PMDC Certified · Karachi, Pakistan</div>
+      <h1>Your Health,<br><span>Our Priority</span></h1>
+      <p class="hero-desc">LifeCare Clinic brings world-class medical expertise to the heart of Karachi. From 24/7 emergency response to specialized care — your wellbeing is in trusted hands.</p>
+      <div class="hero-btns">
+        <a href="#appointment" class="btn-pri">Book Appointment</a>
+        <a href="#services" class="btn-sec">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-icon si-blue">👨‍⚕️</div>
+        <div><div class="stat-num">15+</div><div class="stat-lbl">Expert Doctors</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon si-cyan">📈</div>
+        <div><div class="stat-num">10K+</div><div class="stat-lbl">Patients Treated</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon si-yellow">⭐</div>
+        <div><div class="stat-num">4.9</div><div class="stat-lbl">Star Rating</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon si-purple">🕐</div>
+        <div><div class="stat-num">24/7</div><div class="stat-lbl">Emergency Care</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sec-inner">
+    <div class="sec-hdr">
+      <span class="sec-lbl">Our Services</span>
+      <h2 class="sec-ttl">Comprehensive Care, Under One Roof</h2>
+      <p class="sec-sub">From routine checkups to specialized treatments, our departments are equipped with modern technology and led by experienced consultants.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <span class="svc-badge badge-green">Available 24/7</span>
+        <div class="svc-icon">❤️</div>
+        <h3>Cardiology</h3>
+        <p>Advanced heart care with ECG, echocardiography and interventional cardiology.</p>
+        <a href="#appointment" class="svc-link">Book a session →</a>
+      </div>
+      <div class="svc-card">
+        <span class="svc-badge badge-blue">Mon – Sat</span>
+        <div class="svc-icon">🧠</div>
+        <h3>Neurology</h3>
+        <p>Comprehensive diagnosis and treatment of neurological and stroke disorders.</p>
+        <a href="#appointment" class="svc-link">Book a session →</a>
+      </div>
+      <div class="svc-card">
+        <span class="svc-badge badge-blue">Mon – Fri</span>
+        <div class="svc-icon">🦴</div>
+        <h3>Orthopedics</h3>
+        <p>Joint replacement, sports injury and fracture management by specialists.</p>
+        <a href="#appointment" class="svc-link">Book a session →</a>
+      </div>
+      <div class="svc-card">
+        <span class="svc-badge badge-green">Daily</span>
+        <div class="svc-icon">👶</div>
+        <h3>Pediatrics</h3>
+        <p>Compassionate care for newborns, children and adolescents of all ages.</p>
+        <a href="#appointment" class="svc-link">Book a session →</a>
+      </div>
+      <div class="svc-card">
+        <span class="svc-badge badge-green">24/7</span>
+        <div class="svc-icon">🔬</div>
+        <h3>Laboratory</h3>
+        <p>Full-spectrum diagnostics with rapid turnaround and NABL accredited reports.</p>
+        <a href="#appointment" class="svc-link">Book a session →</a>
+      </div>
+      <div class="svc-card">
+        <span class="svc-badge badge-green">Daily</span>
+        <div class="svc-icon">🩻</div>
+        <h3>Radiology</h3>
+        <p>Digital X-ray, ultrasound, MRI and CT imaging with expert reporting.</p>
+        <a href="#appointment" class="svc-link">Book a session →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section id="doctors">
+  <div class="sec-inner">
+    <div class="sec-hdr">
+      <span class="sec-lbl">Meet The Team</span>
+      <h2 class="sec-ttl">Specialists Who Truly Care</h2>
+      <p class="sec-sub">Our PMDC-certified consultants bring decades of combined experience and a patient-first philosophy to every consultation.</p>
+    </div>
+    <div class="doctors-grid">
+      <div class="doc-card">
+        <div class="doc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=85" alt="Dr. Ayesha Khan">
+          <div class="doc-rating">⭐ 4.9</div>
+        </div>
+        <div class="doc-body">
+          <h3>Dr. Ayesha Khan</h3>
+          <div class="doc-spec">Cardiologist</div>
+          <div class="doc-exp"><span>14 yrs experience</span><a href="#appointment" class="doc-book">Book →</a></div>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=85" alt="Dr. Bilal Ahmed">
+          <div class="doc-rating">⭐ 4.8</div>
+        </div>
+        <div class="doc-body">
+          <h3>Dr. Bilal Ahmed</h3>
+          <div class="doc-spec">Neurologist</div>
+          <div class="doc-exp"><span>12 yrs experience</span><a href="#appointment" class="doc-book">Book →</a></div>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=85" alt="Dr. Sana Malik">
+          <div class="doc-rating">⭐ 5.0</div>
+        </div>
+        <div class="doc-body">
+          <h3>Dr. Sana Malik</h3>
+          <div class="doc-spec">Pediatrician</div>
+          <div class="doc-exp"><span>10 yrs experience</span><a href="#appointment" class="doc-book">Book →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="sec-inner">
+    <div class="sec-hdr">
+      <span class="sec-lbl">Why Choose Us</span>
+      <h2 class="sec-ttl">A Clinic You Can Trust</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🏅</div>
+        <h3>PMDC Certified</h3>
+        <p>Every physician is verified by the Pakistan Medical & Dental Council.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <h3>Modern Equipment</h3>
+        <p>State-of-the-art diagnostic and surgical technology across departments.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚑</div>
+        <h3>24/7 Emergency</h3>
+        <p>Round-the-clock emergency response with rapid ambulance dispatch.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💳</div>
+        <h3>Affordable Fees</h3>
+        <p>Transparent pricing with insurance support and flexible plans.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT -->
+<section id="appointment">
+  <div class="appt-wrap">
+    <div class="sec-hdr">
+      <span class="sec-lbl">Get In Touch</span>
+      <h2 class="sec-ttl">Book Your Appointment</h2>
+      <p class="sec-sub">Schedule a visit with our specialists in just a few clicks. We'll confirm your slot via SMS.</p>
+    </div>
+    <div class="appt-grid">
+      <div>
+        <div class="appt-info-box">
+          <h3>Clinic Information</h3>
+          <div class="info-row">
+            <div class="info-icon">📍</div>
+            <div><strong>Visit Us</strong><span>Plot 12, Khayaban-e-Iqbal, DHA Phase 5, Karachi</span></div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">📞</div>
+            <div><strong>Call Us</strong><span>+92 21 3529 8800</span></div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">✉️</div>
+            <div><strong>Email Us</strong><span>appointments@lifecare.pk</span></div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">🕐</div>
+            <div><strong>Working Hours</strong><span>Mon – Sun · 24/7 Emergency</span></div>
+          </div>
+        </div>
+        <div class="emergency-box">
+          <strong>Emergency?</strong> Call our 24/7 hotline — 1122 — for immediate ambulance dispatch.
+        </div>
+      </div>
+      <div class="appt-form">
+        <form onsubmit="submitForm(event)">
+          <div class="form-grid">
+            <div class="field">
+              <label>Patient Name</label>
+              <input type="text" class="finput" placeholder="Your full name" required>
+            </div>
+            <div class="field">
+              <label>Phone</label>
+              <input type="tel" class="finput" placeholder="+92 3XX XXXXXXX" required>
+            </div>
+            <div class="field">
+              <label>Department</label>
+              <select class="finput" required>
+                <option value="" disabled selected>Select department</option>
+                <option>Cardiology</option>
+                <option>Neurology</option>
+                <option>Orthopedics</option>
+                <option>Pediatrics</option>
+                <option>Laboratory</option>
+                <option>General Medicine</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Time Slot</label>
+              <select class="finput">
+                <option value="" disabled selected>Select time</option>
+                <option>9:00 AM – 11:00 AM</option>
+                <option>11:00 AM – 1:00 PM</option>
+                <option>2:00 PM – 4:00 PM</option>
+                <option>4:00 PM – 6:00 PM</option>
+                <option>6:00 PM – 9:00 PM</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Preferred Date</label>
+              <input type="date" class="finput" required>
+            </div>
+            <div class="field">
+              <label>Age</label>
+              <input type="number" class="finput" placeholder="Years" min="1" max="120" required>
+            </div>
+            <div class="field field-full">
+              <label>Symptoms / Notes</label>
+              <textarea class="finput" placeholder="Briefly describe your symptoms or reason for visit..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="fsub">Confirm Appointment</button>
+          <div class="success" id="success">✅ Appointment confirmed! We'll contact you within 2 hours.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="logo">
+    <div class="logo-box">❤️</div>
+    <div class="logo-text">
+      <div class="logo-name">Life<span>Care</span></div>
+      <div class="logo-sub">Clinic Karachi</div>
+    </div>
+  </a>
+  <p>© 2026 LifeCare Clinic, Karachi. All rights reserved.</p>
+  <div class="flinks">
+    <a href="#services">Services</a>
+    <a href="#doctors">Doctors</a>
+    <a href="#why">About</a>
+    <a href="#appointment">Contact</a>
+  </div>
+</footer>
+
+<script>
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('success').style.display='block';
+  e.target.reset();
+}
+</script>
+</body>
+</html>
